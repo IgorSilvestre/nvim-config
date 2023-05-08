@@ -63,6 +63,7 @@ end)
 lsp.setup()
 
 vim.diagnostic.config({
+-- Add this to your Neovim Lua configuration
     virtual_text = true
 })
 
