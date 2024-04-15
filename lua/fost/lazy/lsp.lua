@@ -92,5 +92,8 @@ return {
                 prefix = "",
             },
         })
+
+
+        vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, {}) -- go to implentation
     end
 }
