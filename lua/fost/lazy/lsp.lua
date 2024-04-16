@@ -75,7 +75,7 @@ return {
             }),
             sources = cmp.config.sources({
                 { name = 'nvim_lsp' },
-                { name = 'luasnip' }, -- For luasnip users.
+                { name = 'luasnig' }, -- For luasnip users.
             }, {
                 { name = 'buffer' },
             })
@@ -94,6 +94,6 @@ return {
         })
 
 
-        vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, {}) -- go to implentation
+        vim.keymap.set('n', 'lgi', vim.lsp.buf.implementation, {}) -- go to implentation
     end
 }
