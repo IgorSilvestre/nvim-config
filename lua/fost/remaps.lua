@@ -14,7 +14,7 @@ vim.keymap.set("n", "n", "nzzzv") -- keep cursor centered when searching
 vim.keymap.set("n", "N", "Nzzzv") -- keep cursor centered when searching
 
 -- Split vertically
-vim.api.nvim_set_keymap("n", "<Leader>v", ":vsplit<CR>", { noremap = true }) -- split
+vim.api.nvim_set_keymap("n", "<Leader>vs", ":vsplit<CR>", { noremap = true }) -- split
 vim.api.nvim_set_keymap("n", "<Leader>vc", "<C-w>c", { noremap = true }) -- close
 vim.api.nvim_set_keymap("n", "<Leader>h", "<C-w>h", { noremap = true }) -- move left
 vim.api.nvim_set_keymap("n", "<Leader>l", "<C-w>l", { noremap = true }) -- move right
