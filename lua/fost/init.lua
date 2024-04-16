@@ -1,3 +1,3 @@
 require('fost.set')
-require('fost.remaps')
+require('fost.keymaps')
 require('fost.lazy_init')

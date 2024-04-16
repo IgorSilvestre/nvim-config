@@ -33,7 +33,8 @@ vim.keymap.set({ "v" }, "<leader>p", [["_p]])
 vim.keymap.set("i", "<C-c>", "<Esc>") -- <ctrl-c> in insert mode to escape
 
 vim.keymap.set("n", "Q", "<nop>")
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
+vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format) -- format code
+vim.keymap.set({ 'n', 'v' }, '<space>la', vim.lsp.buf.code_action, {}) -- code action e.g. rename, add import
 
 -- Append bottom line to current line (why would I need this??)
 --vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
