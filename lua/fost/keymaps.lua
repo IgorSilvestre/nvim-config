@@ -2,6 +2,8 @@ vim.g.mapleader = " "
 
 local opts = { noremap = true, silent = true }
 
+vim.api.nvim_set_keymap('i', '<silent><esc>', '<esc>:update<cr>', { noremap = true, silent = true }) -- Saves on exit insert mode !!
+
 vim.keymap.set('n', '<leader>w', ':w<CR>', { noremap = true })
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv") -- move highlighted line down

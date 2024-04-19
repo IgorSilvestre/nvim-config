@@ -94,6 +94,9 @@ return {
         })
 
 
-        vim.keymap.set('n', 'lgi', vim.lsp.buf.implementation, {}) -- go to implentation
+        vim.keymap.set('n', '<leader>lgi', vim.lsp.buf.implementation, {}) -- go to implentation
+        vim.keymap.set('n', '<leader>lgr', vim.lsp.buf.references, {}) -- go to references
+        vim.keymap.set('n', '<leader>lgt', vim.lsp.buf.type_definition, {}) -- go to type definition
+        vim.keymap.set('n', '<leader>lr', vim.lsp.buf.rename, {}) -- rename
     end
 }
