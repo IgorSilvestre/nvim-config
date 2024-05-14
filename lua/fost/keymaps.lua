@@ -2,6 +2,8 @@ vim.g.mapleader = " "
 
 local opts = { noremap = true, silent = true }
 
+vim.keymap.set('v', 'p', '"_dP', { noremap = true }) -- paste without yanking
+
 vim.api.nvim_set_keymap('i', '<silent><esc>', '<esc>:update<cr>', { noremap = true, silent = true }) -- Saves on exit insert mode !!
 
 vim.keymap.set('n', '<leader>w', ':w<CR>', { noremap = true })
