@@ -2,6 +2,8 @@ vim.g.mapleader = " "
 
 local opts = { noremap = true, silent = true }
 
+vim.keymap.set('n', '<leader>ms', ':Mason<cr>', { noremap = true }) -- paste without yanking
+
 vim.keymap.set('v', 'p', '"_dP', { noremap = true }) -- paste without yanking
 
 vim.api.nvim_set_keymap('i', '<silent><esc>', '<esc>:update<cr>', { noremap = true, silent = true }) -- Saves on exit insert mode !!
@@ -38,7 +40,6 @@ vim.keymap.set({ "v" }, "<leader>p", [["_p]])
 vim.keymap.set("i", "<C-c>", "<Esc>") -- <ctrl-c> in insert mode to escape
 
 vim.keymap.set("n", "Q", "<nop>")
-vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format) -- format code
 vim.keymap.set({ 'n', 'v' }, '<space>la', vim.lsp.buf.code_action, opts) -- code action e.g. rename, add import
 
 -- Append bottom line to current line (why would I need this??)

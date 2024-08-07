@@ -11,6 +11,8 @@ return {
         "L3MON4D3/LuaSnip",
         "saadparwaiz1/cmp_luasnip",
         "j-hui/fidget.nvim",
+        "jose-elias-alvarez/nvim-lsp-ts-utils",
+        "nvim-lua/plenary.nvim",
     },
 
     config = function()
@@ -32,11 +34,12 @@ return {
                 "tailwindcss",
                 "pyright",
                 "svelte",
-                "dockerls"
+                "dockerls",
+                "tsserver",
+                "json-lsp",
             },
             handlers = {
-                function(server_name) -- default handler (optional)
-
+                function(server_name)
                     require("lspconfig")[server_name].setup {
                         capabilities = capabilities
                     }
@@ -48,7 +51,7 @@ return {
                         capabilities = capabilities,
                         settings = {
                             Lua = {
-				    runtime = { version = "Lua 5.1" },
+                                runtime = { version = "Lua 5.1" },
                                 diagnostics = {
                                     globals = { "vim", "it", "describe", "before_each", "after_each" },
                                 }
@@ -56,6 +59,32 @@ return {
                         }
                     }
                 end,
+                ["svelte"] = function()
+                    require("lspconfig").svelte.setup {
+                        capabilities = capabilities
+                    }
+                end,
+                ["tsserver"] = function()
+                    require("lspconfig").tsserver.setup {
+                        capabilities = capabilities,
+                        on_attach = function(client, bufnr)
+                            local ts_utils = require("nvim-lsp-ts-utils")
+
+                            ts_utils.setup({})
+                            ts_utils.setup_client(client)
+
+                            local buf_map = function(mode, lhs, rhs, opts)
+                                vim.api.nvim_buf_set_keymap(bufnr, mode, lhs, rhs, opts or {
+                                    noremap = true, silent = true
+                                })
+                            end
+
+                            buf_map("n", "<leader>ltf", ":TSLspOrganize<CR>")
+                            buf_map("n", "<leader>ltr", ":TSLspRenameFile<CR>")
+                            buf_map("n", "<leader>lti", ":TSLspImportAll<CR>")
+                        end
+                    }
+                end
             }
         })
 
@@ -64,7 +93,7 @@ return {
         cmp.setup({
             snippet = {
                 expand = function(args)
-                    require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+                    require('luasnip').lsp_expand(args.body)
                 end,
             },
             mapping = cmp.mapping.preset.insert({
@@ -75,14 +104,13 @@ return {
             }),
             sources = cmp.config.sources({
                 { name = 'nvim_lsp' },
-                { name = 'luasnig' }, -- For luasnip users.
+                { name = 'luasnip' },
             }, {
                 { name = 'buffer' },
             })
         })
 
         vim.diagnostic.config({
-            -- update_in_insert = true,
             float = {
                 focusable = false,
                 style = "minimal",
@@ -93,10 +121,10 @@ return {
             },
         })
 
-
-        vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, {}) -- go to implentation
-        vim.keymap.set('n', 'gr', vim.lsp.buf.references, {}) -- go to references
-        vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, {}) -- go to type definition
-        vim.keymap.set('n', '<leader>lr', vim.lsp.buf.rename, {}) -- rename
+        vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, {})
+        vim.keymap.set('n', 'gr', vim.lsp.buf.references, {})
+        vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, {})
+        vim.keymap.set('n', '<leader>lr', vim.lsp.buf.rename, {})
+        vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format) -- format code
     end
 }
