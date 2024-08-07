@@ -2,9 +2,10 @@ vim.g.mapleader = " "
 
 local opts = { noremap = true, silent = true }
 
-vim.keymap.set('n', '<leader>ms', ':Mason<cr>', { noremap = true }) -- paste without yanking
+vim.keymap.set('n', '<leader>ms', ':Mason<cr>', { noremap = true }) -- Open Mason
+vim.keymap.set('n', '<leader>mc', ':MasonComment<cr>', { noremap = true }) -- paste without yanking
 
-vim.keymap.set('v', 'p', '"_dP', { noremap = true }) -- paste without yanking
+vim.keymap.set({ 'v', 'n' }, 'p', '"_dP', { noremap = true }) -- paste without yanking
 
 vim.api.nvim_set_keymap('i', '<silent><esc>', '<esc>:update<cr>', { noremap = true, silent = true }) -- Saves on exit insert mode !!
 
