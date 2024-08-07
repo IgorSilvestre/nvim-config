@@ -36,7 +36,7 @@ return {
                 "svelte",
                 "dockerls",
                 "tsserver",
-                "json-lsp",
+                "jsonls",
             },
             handlers = {
                 function(server_name)
