@@ -3,9 +3,6 @@ vim.g.mapleader = " "
 local opts = { noremap = true, silent = true }
 
 vim.keymap.set('n', '<leader>ms', ':Mason<cr>', { noremap = true }) -- Open Mason
-vim.keymap.set('n', '<leader>mc', ':MasonComment<cr>', { noremap = true }) -- paste without yanking
-
-vim.keymap.set({ 'v', 'n' }, 'p', '"_dP', { noremap = true }) -- paste without yanking
 
 vim.api.nvim_set_keymap('i', '<silent><esc>', '<esc>:update<cr>', { noremap = true, silent = true }) -- Saves on exit insert mode !!
 
@@ -27,8 +24,9 @@ vim.api.nvim_set_keymap("n", "<Leader>vc", "<C-w>c", { noremap = true }) -- clos
 vim.api.nvim_set_keymap("n", "<Leader>h", "<C-w>h", { noremap = true }) -- move left
 vim.api.nvim_set_keymap("n", "<Leader>l", "<C-w>l", { noremap = true }) -- move right
 
--- greatest remap ever
-vim.keymap.set("x", "<leader>p", [["_dP]]) -- delete and paste without losing buffer in visual mode
+
+-- vim.keymap.set({ 'n', 'v' }, 'p', '"0p') -- Paste from the "0 register without overwriting it
+
 
 -- next greatest remap ever : asbjornHaland
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
