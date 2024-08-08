@@ -59,11 +59,6 @@ return {
                         }
                     }
                 end,
-                ["svelte"] = function()
-                    require("lspconfig").svelte.setup {
-                        capabilities = capabilities
-                    }
-                end,
                 ["tsserver"] = function()
                     require("lspconfig").tsserver.setup {
                         capabilities = capabilities,
