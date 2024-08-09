@@ -32,7 +32,8 @@ return {
                 "biome",
                 "html",
                 "tailwindcss",
-                "pyright",
+                -- "pyright", types for python
+                "pylsp",
                 "svelte",
                 "dockerls",
                 "tsserver",
@@ -42,6 +43,22 @@ return {
                 function(server_name)
                     require("lspconfig")[server_name].setup {
                         capabilities = capabilities
+                    }
+                end,
+
+                ["pylsp"] = function()
+                    local lspconfig = require("lspconfig")
+                    lspconfig.pylsp.setup {
+                        capabilities = capabilities,
+                        settings = {
+                            pylsp = {
+                                plugins = {
+                                    pycodestyle = { enabled = false },
+                                    -- pylint = { enabled = true },
+                                    pyls_black = { enabled = true },
+                                }
+                            }
+                        }
                     }
                 end,
 
