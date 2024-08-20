@@ -8,5 +8,14 @@ return {
             vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none'})
         end
     },
+    -- {
+    --     "morhetz/gruvbox",
+    --     priority = 1000,
+    --     config = function()
+    --         vim.g.gruvbox_contrast_dark = "hard" -- Set the contrast to "hard"
+    --         vim.cmd.colorscheme "gruvbox"
+    --         vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
+    --         vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
+    --     end
+    -- }
 }
-
