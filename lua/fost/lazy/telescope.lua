@@ -5,20 +5,12 @@ return {
     dependencies = { 'nvim-lua/plenary.nvim' },
     config = function()
         local builtin = require('telescope.builtin')
-
-        require('telescope').setup{
-            defaults = {
-                layout_strategy = 'flex',
-                file_previewer = require'telescope.previewers'.vim_buffer_cat.new,
-                grep_previewer = require'telescope.previewers'.vim_buffer_vimgrep.new,
-                qflist_previewer = require'telescope.previewers'.vim_buffer_qflist.new,
-            }
-        }
+        require('telescope').setup{}
 
         -- KEYMAPS
         vim.keymap.set('n', '<leader>sf', builtin.find_files, {}) -- search all files
         vim.keymap.set('n', '<leader>gs', builtin.git_files, {}) -- search only git files
-        vim.keymap.set('n', '<leader>st', function() 
+        vim.keymap.set('n', '<leader>st', function()
             builtin.grep_string({ search = vim.fn.input('grep > ')})
         end)
         -- search for string in current working directory
