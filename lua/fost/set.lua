@@ -1,6 +1,6 @@
 vim.g.mapleader = " "
 
--- vim.opt.clipboard = "unnamedplus" -- nvim clipboard will be the same as system
+vim.opt.clipboard = "unnamedplus" -- nvim clipboard will be the same as system
 
 vim.opt.guicursor = "" -- keeps my cursor fat
 
