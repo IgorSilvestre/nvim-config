@@ -6,6 +6,7 @@ return {
             vim.cmd.colorscheme "catppuccin"
             vim.api.nvim_set_hl(0, 'Normal', { bg = 'none'})
             vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none'})
+            vim.api.nvim_set_hl(0, "LineNr", { fg = "#0088FF" }) -- Change to your preferred color
         end
     },
     -- {
