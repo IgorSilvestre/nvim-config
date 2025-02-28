@@ -30,7 +30,7 @@ return {
       ensure_installed = {
         "lua_ls",
         "gopls",
-        "ts_ls",
+        "tsserver",
         "biome",
         "html",
         "tailwindcss",
@@ -76,8 +76,19 @@ return {
             }
           }
         end,
-        ["ts_ls"] = function()
-          require("lspconfig").ts_ls.setup {
+
+        ['biome'] = function()
+          local lspconfig = require("lspconfig")
+          lspconfig.biome.setup {
+            on_attach = function(client, buffer)
+              client.server_capabilities.documentFormattingProvider = true
+              client.server_capabilities.documentRangeFormattingProvider = true
+            end,
+          }
+        end,
+
+        ["tsserver"] = function()
+          require("lspconfig").tsserver.setup {
             capabilities = capabilities,
             on_attach = function(_, bufnr)
               local buf_map = function(mode, lhs, rhs, opts)
@@ -86,11 +97,10 @@ return {
                 })
               end
 
-              -- Alternative approach for organizing imports
-              buf_map("n", "<leader>ltf", "<cmd>lua vim.lsp.buf.code_action()<CR>")
+              buf_map("n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<CR>")
 
               -- Rename file is not natively supported, but you can use :Rename
-              buf_map("n", "<leader>ltr", "<cmd>lua vim.lsp.buf.rename()<CR>")
+              buf_map("n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<CR>")
 
               -- Import All - This is trickier, you'd rely on Biome/ESLint fixes instead
             end
