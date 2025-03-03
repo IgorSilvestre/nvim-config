@@ -30,7 +30,7 @@ return {
       ensure_installed = {
         "lua_ls",
         "gopls",
-        "tsserver",
+        "typescript-language-server",
         "biome",
         "html",
         "tailwindcss",
