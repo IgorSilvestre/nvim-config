@@ -30,7 +30,7 @@ return {
       ensure_installed = {
         "lua_ls",
         "gopls",
-        "typescript-language-server",
+        "ts_ls",
         "biome",
         "html",
         "tailwindcss",
@@ -87,8 +87,8 @@ return {
           }
         end,
 
-        ["tsserver"] = function()
-          require("lspconfig").tsserver.setup {
+        ["ts_ls"] = function()
+          require("lspconfig").ts_ls.setup {
             capabilities = capabilities,
             on_attach = function(_, bufnr)
               local buf_map = function(mode, lhs, rhs, opts)
