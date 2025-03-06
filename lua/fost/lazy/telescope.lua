@@ -10,7 +10,7 @@ return {
       defaults = {
         file_ignore_patterns = { "node_modules", ".git" }, -- Optional: ignore unnecessary files
         layout_strategy = 'vertical',
-        path_display = { "smart" }, -- Show the end of the path first
+        path_display = { "truncate" },
       },
       -- pickers = {
       --   find_files = { previewer = false },
