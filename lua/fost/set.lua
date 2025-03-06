@@ -2,6 +2,10 @@ vim.g.mapleader = " "
 
 vim.opt.clipboard = "unnamedplus" -- nvim clipboard will be the same as system
 
+-- makes search case insensitive, but if you use a capital letter it will be case sensitive
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
 vim.opt.guicursor = "" -- keeps my cursor fat
 
 vim.opt.nu = true -- line numbers
