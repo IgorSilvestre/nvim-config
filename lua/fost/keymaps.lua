@@ -2,6 +2,9 @@ vim.g.mapleader = " "
 
 local opts = { noremap = true, silent = true }
 
+vim.keymap.set('n', '<leader>cpa', ':let @+ = expand("%:p")<CR>', { noremap = true, silent = true }) -- copy file path absolute to clipboard
+vim.keymap.set('n', '<leader>cp', ':let @+ = expand("%")<CR>', { noremap = true, silent = true }) -- copy file path relative to clipboard
+
 vim.keymap.set('n', '<leader>ms', ':Mason<cr>', { noremap = true }) -- Open Mason
 
 vim.api.nvim_set_keymap('i', '<silent><esc>', '<esc>:update<cr>', { noremap = true, silent = true }) -- Saves on exit insert mode !!
