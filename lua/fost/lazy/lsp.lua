@@ -90,6 +90,8 @@ return {
         ["ts_ls"] = function()
           require("lspconfig").ts_ls.setup {
             capabilities = capabilities,
+            filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "svelte" },
+            root_dir = require("lspconfig").util.root_pattern("package.json", "tsconfig.json", "jsconfig.json", ".git"),
             on_attach = function(_, bufnr)
               local buf_map = function(mode, lhs, rhs, opts)
                 vim.api.nvim_buf_set_keymap(bufnr, mode, lhs, rhs, opts or {
@@ -98,11 +100,7 @@ return {
               end
 
               buf_map("n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<CR>")
-
-              -- Rename file is not natively supported, but you can use :Rename
               buf_map("n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<CR>")
-
-              -- Import All - This is trickier, you'd rely on Biome/ESLint fixes instead
             end
           }
         end
