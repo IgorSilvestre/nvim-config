@@ -6,6 +6,9 @@ return {
         '/Users/igorsilvestre/geomais/geomais-node-api',
         '/Users/igorsilvestre/geomais/geomais-frontend-monorepo',
         '/Users/igorsilvestre/geomais/geomais-export-api',
+        '/home/is/gitrepos/geomais-export-api',
+        '/home/is/gitrepos/geomais-node-api',
+        '/home/is/gitrepos/geomais-frontend-monorepo'
       }
 
       local keymap = vim.keymap.set
