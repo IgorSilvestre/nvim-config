@@ -4,6 +4,7 @@ return {
     config = function()
       vim.g.augment_workspace_folders = {
         '/Users/igorsilvestre/geomais/geomais-node-api',
+        '/Users/igorsilvestre/.config/nvim',
         '/Users/igorsilvestre/geomais/geomais-frontend-monorepo',
         '/Users/igorsilvestre/geomais/geomais-export-api',
         '/home/is/gitrepos/geomais-export-api',
