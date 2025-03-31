@@ -32,6 +32,7 @@ return {
         "gopls",
         "ts_ls",
         "biome",
+        "eslint",
         "html",
         "tailwindcss",
         "pylsp",
@@ -75,6 +76,18 @@ return {
               }
             }
           }
+        end,
+
+        ["eslint"] = function()
+          require("lspconfig").eslint.setup({
+            capabilities = capabilities,
+            on_attach = function(client, bufnr)
+              vim.api.nvim_create_autocmd("BufWritePre", {
+                buffer = bufnr,
+                command = "EslintFixAll",
+              })
+            end,
+          })
         end,
 
         ['biome'] = function()
