@@ -9,7 +9,8 @@ return {
         '/Users/igorsilvestre/geomais/geomais-export-api',
         '/home/is/gitrepos/geomais-export-api',
         '/home/is/gitrepos/geomais-node-api',
-        '/home/is/gitrepos/geomais-frontend-monorepo'
+        '/home/is/gitrepos/geomais-frontend-monorepo',
+        '/home/is/gitrepos/changemaster'
       }
 
       local keymap = vim.keymap.set
