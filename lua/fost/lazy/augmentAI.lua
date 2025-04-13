@@ -1,6 +1,7 @@
 return {
   {
     "augmentcode/augment.vim",
+    lazy = true,
     config = function()
       vim.g.augment_workspace_folders = {
         '/Users/igorsilvestre/geomais/geomais-node-api',
@@ -10,7 +11,10 @@ return {
         '/home/is/gitrepos/geomais-export-api',
         '/home/is/gitrepos/geomais-node-api',
         '/home/is/gitrepos/geomais-frontend-monorepo',
-        '/home/is/gitrepos/changemaster'
+        '/home/is/gitrepos/changemaster',
+        -- popos homerserver
+        '/home/is/gitrepos/scrape_farmaciapopular',
+        '/home/is/gitrepos/europods'
       }
 
       local keymap = vim.keymap.set
