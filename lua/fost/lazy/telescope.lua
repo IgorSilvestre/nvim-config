@@ -8,7 +8,7 @@ return {
     local builtin = require('telescope.builtin')
     require('telescope').setup {
       defaults = {
-        file_ignore_patterns = { "node_modules", ".git" }, -- Optional: ignore unnecessary files
+        file_ignore_patterns = { "node_modules", ".git", "yarn.lock", "bun.lock", "package-lock.json" }, -- Optional: ignore unnecessary files
         layout_strategy = 'vertical',
         path_display = { "truncate" },
       },
