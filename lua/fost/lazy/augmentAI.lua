@@ -1,21 +1,28 @@
 return {
   {
     "augmentcode/augment.vim",
-    lazy = true,
+    -- lazy = true,
     config = function()
-      vim.g.augment_workspace_folders = {
-        '/Users/igorsilvestre/geomais/geomais-node-api',
-        '/Users/igorsilvestre/.config/nvim',
-        '/Users/igorsilvestre/geomais/geomais-frontend-monorepo',
-        '/Users/igorsilvestre/geomais/geomais-export-api',
-        '/home/is/gitrepos/geomais-export-api',
-        '/home/is/gitrepos/geomais-node-api',
-        '/home/is/gitrepos/geomais-frontend-monorepo',
-        '/home/is/gitrepos/changemaster',
-        -- popos homerserver
-        '/home/is/gitrepos/scrape_farmaciapopular',
-        '/home/is/gitrepos/europods'
+      local hostname = vim.fn.hostname()
+      local workspace_folders = {
+        ['macbook'] = {
+          '/Users/igorsilvestre/geomais/geomais-node-api',
+          '/Users/igorsilvestre/.config/nvim',
+          '/Users/igorsilvestre/geomais/geomais-frontend-monorepo',
+          '/Users/igorsilvestre/geomais/geomais-export-api',
+        },
+        ['fost'] = {
+          '/home/is/gitrepos/scrape_farmaciapopular',
+          '/home/is/gitrepos/europods-frontend'
+        },
+        ['popos-geomais'] = {
+          '/home/is/gitrepos/geomais-export-api',
+          '/home/is/gitrepos/geomais-node-api',
+          '/home/is/gitrepos/geomais-frontend-monorepo',
+          '/home/is/gitrepos/changemaster',
+        }
       }
+      vim.g.augment_workspace_folders = workspace_folders[hostname] or {}
 
       local keymap = vim.keymap.set
 
