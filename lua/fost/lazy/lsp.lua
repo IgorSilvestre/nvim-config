@@ -143,6 +143,7 @@ return {
     })
 
     vim.diagnostic.config({
+      virtual_text = true,  -- Enable inline diagnostics
       float = {
         focusable = false,
         style = "minimal",
@@ -151,6 +152,10 @@ return {
         header = "",
         prefix = "",
       },
+      signs = true,         -- Show signs in the sign column
+      underline = true,     -- Underline the problems
+      update_in_insert = false,
+      severity_sort = true,
     })
 
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, {})
