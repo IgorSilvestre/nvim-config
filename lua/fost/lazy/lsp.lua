@@ -29,14 +29,14 @@ return {
     require("mason-lspconfig").setup({
       ensure_installed = {
         "lua_ls",
-        "gopls",
+        -- "gopls",
         "ts_ls",
         "biome",
         "eslint",
         "html",
         "tailwindcss",
-        "pylsp",
-        "svelte",
+        -- "pylsp",
+        -- "svelte",
         "dockerls",
         "jsonls",
       },
