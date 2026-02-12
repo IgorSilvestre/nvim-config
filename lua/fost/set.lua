@@ -9,7 +9,7 @@ vim.opt.smartcase = true
 vim.opt.guicursor = "" -- keeps my cursor fat
 
 vim.opt.nu = true -- line numbers
-vim.opt.relativenumber = true -- relative line numbers
+-- vim.opt.relativenumber = true -- relative line numbers
 
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
