@@ -11,15 +11,12 @@ return {
           '/Users/igorsilvestre/geomais/geomais-frontend-monorepo',
           '/Users/igorsilvestre/geomais/geomais-export-api',
         },
-        ['fost'] = {
-          '/home/is/gitrepos/scrape_farmaciapopular',
-          '/home/is/gitrepos/europods-frontend'
-        },
-        ['popos-geomais'] = {
-          '/home/is/gitrepos/geomais-export-api',
-          '/home/is/gitrepos/geomais-node-api',
-          '/home/is/gitrepos/geomais-frontend-monorepo',
-          '/home/is/gitrepos/changemaster',
+        ['dunas'] = {
+          '/home/dunas/geomais/geomais-export-api',
+          '/home/dunas/geomais/geomais-node-api',
+          '/home/dunas/geomais/geomais-frontend-monorepo',
+          '/home/dunas/geomais/geomais-rusty-vts',
+          '/home/dunas/.config/nvim',
         }
       }
       vim.g.augment_workspace_folders = workspace_folders[hostname] or {}
