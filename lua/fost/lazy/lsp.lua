@@ -28,18 +28,18 @@ return {
     require("mason").setup()
     require("mason-lspconfig").setup({
       ensure_installed = {
-        "lua_ls",
-        "clangd",
+        -- "lua_ls",
+        -- "clangd",
         -- "gopls",
-        "ts_ls",
-        "biome",
-        "eslint",
-        "html",
-        "tailwindcss",
+        -- "ts_ls",
+        -- "biome",
+        -- "eslint",
+        -- "html",
+        -- "tailwindcss",
         -- "pylsp",
         -- "svelte",
-        "dockerls",
-        "jsonls",
+        -- "dockerls",
+        -- "jsonls",
       },
       handlers = {
         function(server_name)
